@@ -1,0 +1,21 @@
+# Godot 4 engine cache and imported binaries
+.godot/
+
+# Godot crash logs
+crash.*.json
+mono_crash.*.json
+
+# Build exports
+build/
+bin/
+*.apk
+*.aab
+*.exe
+*.zip
+
+# Temporary files
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
