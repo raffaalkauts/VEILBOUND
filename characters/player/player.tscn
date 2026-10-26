@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cveilboundplayer01"]
+
+[ext_resource type="Script" path="res://characters/player/player_controller.gd" id="1_controller"]
+[ext_resource type="Script" path="res://characters/player/player_visual_driver.gd" id="2_visual"]
+[ext_resource type="Script" path="res://combat/lock_on_component.gd" id="3_lockon"]
+[ext_resource type="Script" path="res://combat/health_component.gd" id="4_health"]
+[ext_resource type="Script" path="res://combat/stamina_component.gd" id="5_stamina"]
+[ext_resource type="Script" path="res://combat/dodge_component.gd" id="6_dodge"]
+[ext_resource type="Script" path="res://combat/melee_attack_component.gd" id="7_attack"]
+[ext_resource type="Script" path="res://combat/guard_component.gd" id="8_guard"]
+[ext_resource type="Script" path="res://combat/player_skill_component.gd" id="12_skills"]
+[ext_resource type="Script" path="res://combat/camera_impulse_component.gd" id="9_camera_impulse"]
+[ext_resource type="Script" path="res://combat/audio_feedback_manager.gd" id="10_audio"]
+[ext_resource type="Script" path="res://combat/combat_feedback_coordinator.gd" id="11_coordinator"]
+[ext_resource type="PackedScene" path="res://characters/player/visual/player_character_model.tscn" id="12_model"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_controller")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+script = ExtResource("2_visual")
+
+[node name="PlayerCharacterModel" parent="VisualRoot" instance=ExtResource("12_model")]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+collision_mask = 1
+spring_length = 4.0
+margin = 0.15
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+current = true
+
+[node name="LockOnComponent" type="Node" parent="."]
+script = ExtResource("3_lockon")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_health")
+
+[node name="StaminaComponent" type="Node" parent="."]
+script = ExtResource("5_stamina")
+
+[node name="DodgeComponent" type="Node" parent="."]
+script = ExtResource("6_dodge")
+
+[node name="MeleeAttackComponent" type="Node" parent="."]
+script = ExtResource("7_attack")
+
+[node name="GuardComponent" type="Node" parent="."]
+script = ExtResource("8_guard")
+
+[node name="PlayerSkillComponent" type="Node" parent="."]
+script = ExtResource("12_skills")
+
+[node name="CameraImpulseComponent" type="Node" parent="."]
+script = ExtResource("9_camera_impulse")
+
+[node name="AudioFeedbackManager" type="Node" parent="."]
+script = ExtResource("10_audio")
+
+[node name="CombatFeedbackCoordinator" type="Node" parent="."]
+script = ExtResource("11_coordinator")

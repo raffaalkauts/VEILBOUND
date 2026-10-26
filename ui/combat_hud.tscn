@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://u6qv1cuqg17q"]
+
+[ext_resource type="Script" path="res://ui/combat_hud.gd" id="1_hud"]
+
+[node name="CombatHUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerStatusPanel" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 360.0
+offset_bottom = 166.0
+mouse_filter = 2
+
+[node name="LowHealthAccent" type="ColorRect" parent="Root/PlayerStatusPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="PlayerMargin" type="MarginContainer" parent="Root/PlayerStatusPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayerStack" type="VBoxContainer" parent="Root/PlayerStatusPanel/PlayerMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StatusHeader" type="HBoxContainer" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StatusTitle" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StatusHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "HOLLOW-BORN"
+
+[node name="StatusState" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StatusHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "VITALITY"
+horizontal_alignment = 2
+
+[node name="HealthHeader" type="HBoxContainer" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HealthCaption" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/HealthHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "HP"
+
+[node name="HealthLabel" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/HealthHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "100 / 100"
+horizontal_alignment = 2
+
+[node name="HealthStack" type="Control" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 16)
+mouse_filter = 2
+
+[node name="HealthTrailBar" type="ProgressBar" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/HealthStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/HealthStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="StaminaHeader" type="HBoxContainer" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StaminaCaption" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StaminaHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "STAMINA"
+
+[node name="StaminaLabel" type="Label" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StaminaHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "100 / 100"
+horizontal_alignment = 2
+
+[node name="StaminaStack" type="Control" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+mouse_filter = 2
+
+[node name="StaminaTrailBar" type="ProgressBar" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StaminaStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="Root/PlayerStatusPanel/PlayerMargin/PlayerStack/StaminaStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="TargetContainer" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -180.0
+offset_top = 24.0
+offset_right = 180.0
+offset_bottom = 132.0
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TargetAccent" type="ColorRect" parent="Root/TargetContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="TargetMargin" type="MarginContainer" parent="Root/TargetContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TargetStack" type="VBoxContainer" parent="Root/TargetContainer/TargetMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TargetHeader" type="HBoxContainer" parent="Root/TargetContainer/TargetMargin/TargetStack"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TargetNameLabel" type="Label" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "Target"
+
+[node name="TargetStateLabel" type="Label" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHeader"]
+layout_mode = 2
+mouse_filter = 2
+text = "LOCKED"
+horizontal_alignment = 2
+
+[node name="TargetHealthStack" type="Control" parent="Root/TargetContainer/TargetMargin/TargetStack"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 14)
+mouse_filter = 2
+
+[node name="TargetHealthTrailBar" type="ProgressBar" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHealthStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="TargetHealthBar" type="ProgressBar" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHealthStack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+show_percentage = false
+
+[node name="TargetHealthMeta" type="HBoxContainer" parent="Root/TargetContainer/TargetMargin/TargetStack"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TargetHealthCaption" type="Label" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHealthMeta"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "TARGET HEALTH"
+
+[node name="TargetHealthLabel" type="Label" parent="Root/TargetContainer/TargetMargin/TargetStack/TargetHealthMeta"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "80 / 80"
+horizontal_alignment = 2

@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="AnimationLibrary" path="res://characters/player/visual/player_animations.tres" id="1_lasja"]
+
+[node name="" type="Node3D" unique_id=580706268]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1063226249]
+libraries/ = ExtResource("1_lasja")

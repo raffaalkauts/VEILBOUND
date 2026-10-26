@@ -80,7 +80,7 @@
 - [ ] 🔴 Pipeline: concept → 3D gen (Meshy/Tripo/Hunyuan) → Blender cleanup → retopo → UV → rig
 - [ ] 🟡 Buat 1 checklist QA aset (poly count, texel density, naming)
 - [ ] 🟡 AI texture pipeline (Substance/SD)
-- [ ] 🟢 Prop kit environment (50 aset)
+- [x] 🟢 Prop kit environment (50+ aset: KayKit modular ruins, pillars, arches, gates, trees, cemetery)
 
 ### Characters
 - [ ] 🔴 Protagonis final (mesh, rig, hair physics)

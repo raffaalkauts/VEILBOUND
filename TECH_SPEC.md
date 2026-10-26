@@ -11,7 +11,7 @@ Status: **Draft v0.1**. Review ulang setelah Combat Prototype (Phase 1).
 |-------|-----------|--------|
 | Engine | Godot 4.x | Ringan (~100 MB), editor visual 3D, file scene/resource berbentuk teks sehingga mudah diedit AI agent, export ke PC/Steam |
 | Bahasa | GDScript (typed) | Iterasi cepat; C#/GDExtension hanya untuk bottleneck hasil profiling |
-| Renderer | Forward+ | Kualitas terbaik di PC; toon shader tidak butuh fitur berat |
+| Renderer | Compatibility (GL Compatibility) | Target Intel UHD 620; satu shadow directional, material atlas 1K, dan efek ringan |
 | Physics | Godot Physics 3D (Jolt opsional) | Cukup untuk karakter + hitbox; Jolt bisa dicoba jika butuh stabilitas lebih |
 
 ### Trade-off yang diterima
@@ -211,11 +211,11 @@ Semua aksi lewat **Input Map** (remappable di Settings).
 
 ---
 
-## 10. Performance Budget (Target PC Mid-range)
+## 10. Performance Budget (Target PC Low-end)
 
 | Metrik | Target |
 |--------|--------|
-| FPS | 60 @ 1080p (RTX 3060, 16 GB RAM) |
+| FPS | Target 60 @ 720p (Intel UHD Graphics 620, RAM 8 GB, Compatibility) |
 | Draw call | < 2.500 |
 | Triangle di layar | < 3 juta |
 | Karakter hero | ≤ 60k tris |

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/tmp_spring_scene.gd" id="1"]
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+bones/0/name = "root"
+bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bones/1/name = "tip"
+bones/1/parent = 0
+bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Spring" type="SpringBoneSimulator3D" parent="Skeleton3D"]
+setting_count = 1
+settings/0/root_bone = 0
+settings/0/end_bone = 1
+settings/0/stiffness = 0.3
+settings/0/drag = 0.2
+settings/0/gravity = 30.0
+settings/0/radius = 0.05

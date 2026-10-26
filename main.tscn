@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://cveilboundmain01"]
 
+[ext_resource type="PackedScene" path="res://characters/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://characters/enemies/lock_on_dummy.tscn" id="2_dummy"]
+[ext_resource type="PackedScene" path="res://ui/combat_hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://characters/enemies/soldier/soldier_enemy.tscn" id="4_soldier"]
+[ext_resource type="NavigationMesh" path="res://world/arena_navigation_mesh.tres" id="5_navmesh"]
+[ext_resource type="PackedScene" path="res://world/dark_ruins_environment.tscn" id="6_ruins"]
+[ext_resource type="PackedScene" path="res://world/lantern_checkpoint.tscn" id="7_checkpoint"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.035, 0.045, 0.085, 1)
+sky_horizon_color = Color(0.22, 0.16, 0.19, 1)
+ground_bottom_color = Color(0.025, 0.03, 0.05, 1)
+ground_horizon_color = Color(0.12, 0.1, 0.14, 1)
 
 [sub_resource type="Sky" id="Sky_env"]
 sky_material = SubResource("ProceduralSkyMaterial_sky")
@@ -10,16 +20,22 @@ sky_material = SubResource("ProceduralSkyMaterial_sky")
 [sub_resource type="Environment" id="Environment_main"]
 background_mode = 2
 sky = SubResource("Sky_env")
+ambient_light_source = 2
+ambient_light_color = Color(0.2, 0.19, 0.23, 1)
+ambient_light_sky_contribution = 0.35
 tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.12, 0.115, 0.16, 1)
+fog_density = 0.016
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_color = Color(0.24, 0.27, 0.32, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_courtyard"]
+size = Vector3(24, 0.5, 22)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cube"]
-albedo_color = Color(0.85, 0.32, 0.22, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_entry"]
+size = Vector3(16, 0.5, 8)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sphere"]
-albedo_color = Color(0.18, 0.58, 0.88, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_entry_ramp"]
+size = Vector3(5.4, 0.05, 4.0)
 
 [node name="Main" type="Node3D"]
 
@@ -28,26 +44,54 @@ environment = SubResource("Environment_main")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 10, 0)
+light_color = Color(0.72, 0.78, 0.9, 1)
+light_energy = 0.7
 shadow_enabled = true
+directional_shadow_max_distance = 45.0
+shadow_bias = 0.05
+shadow_normal_bias = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 4, 8)
-current = true
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("5_navmesh")
 
-[node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-use_collision = true
-size = Vector3(20, 0.5, 20)
-material = SubResource("StandardMaterial3D_floor")
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
 
-[node name="PlaceholderPillar" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 0)
-size = Vector3(1.2, 2, 1.2)
-material = SubResource("StandardMaterial3D_cube")
+[node name="Courtyard" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -6)
+shape = SubResource("BoxShape3D_courtyard")
 
-[node name="PlaceholderSphere" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
-radius = 0.8
-radial_segments = 32
-rings = 16
-material = SubResource("StandardMaterial3D_sphere")
+[node name="EntryCourt" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.25, 11)
+shape = SubResource("BoxShape3D_entry")
+
+[node name="EntryRampCollision" type="StaticBody3D" parent="NavigationRegion3D"]
+position = Vector3(0, -1, 7)
+
+[node name="WalkableRamp" type="CollisionShape3D" parent="NavigationRegion3D/EntryRampCollision"]
+rotation = Vector3(0.610726, 0, 0)
+shape = SubResource("BoxShape3D_entry_ramp")
+
+[node name="DarkRuinsEnvironment" parent="NavigationRegion3D" instance=ExtResource("6_ruins")]
+
+[node name="LanternCheckpoint" parent="." instance=ExtResource("7_checkpoint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 11)
+
+[node name="Dummy_Center" parent="." instance=ExtResource("2_dummy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Dummy_Left" parent="." instance=ExtResource("2_dummy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1)
+
+[node name="Dummy_Right" parent="." instance=ExtResource("2_dummy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -1)
+
+[node name="Dummy_BehindPillar" parent="." instance=ExtResource("2_dummy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.5)
+
+[node name="CombatHUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="SoldierEnemy" parent="." instance=ExtResource("4_soldier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)

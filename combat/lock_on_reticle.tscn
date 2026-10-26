@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cf18eaxuw36uq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_reticle"]
+shading_mode = 0
+albedo_color = Color(0.384314, 0.901961, 0.964706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_diamond"]
+material = SubResource("StandardMaterial3D_reticle")
+size = Vector3(0.18, 0.18, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ring"]
+shading_mode = 0
+albedo_color = Color(0.384314, 0.901961, 0.964706, 0.82)
+
+[sub_resource type="TorusMesh" id="TorusMesh_ring"]
+material = SubResource("StandardMaterial3D_ring")
+inner_radius = 0.22
+outer_radius = 0.28
+rings = 16
+ring_segments = 8
+
+[node name="LockOnReticle" type="Node3D"]
+
+[node name="Diamond" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.5, 0.5, -0.707107, 0.5, 0.5, 0.707107, 0, 0, 0)
+mesh = SubResource("BoxMesh_diamond")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_ring")

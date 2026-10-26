@@ -16,6 +16,11 @@ bin/
 # Temporary files
 *.tmp
 
+# Captures and logs
+screenshot_*.png
+screenshot_*.png.import
+*.log
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c3t2lcqp3naoe"]
+
+[ext_resource type="Script" path="res://vfx/hit_impact_effect.gd" id="1_effect"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_default"]
+shading_mode = 0
+albedo_color = Color(1, 0.8, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_default"]
+material = SubResource("StandardMaterial3D_default")
+size = Vector3(0.06, 0.06, 0.06)
+
+[node name="HitImpactEffect" type="CPUParticles3D"]
+emitting = false
+amount = 10
+lifetime = 0.22
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("BoxMesh_default")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, -9.8, 0)
+initial_velocity_min = 2.5
+initial_velocity_max = 5.0
+color = Color(1, 0.75, 0.2, 1)
+script = ExtResource("1_effect")

@@ -79,7 +79,7 @@
 - [ ] 🔴 Pipeline: concept → 3D gen (Meshy/Tripo/Hunyuan) → Blender cleanup → retopo → UV → rig
 - [ ] 🟡 Buat 1 checklist QA aset (poly count, texel density, naming)
 - [ ] 🟡 AI texture pipeline (Substance/SD)
-- [ ] 🟢 Prop kit environment (50 aset)
+- [x] 🟢 Prop kit environment (50+ aset: KayKit modular ruins, pillars, arches, gates, trees, cemetery)
 
 ### Characters
 - [ ] 🔴 Protagonis final (mesh, rig, hair physics)
@@ -88,7 +88,64 @@
 
 ---
 
+### Environment Design & Playable Vertical Slice (Phase 2.3)
+- [x] Audit environment assets; integrate free KayKit models and record creator, source, and CC0 license
+- [x] Build connected entry, elevated stair approach, ruined combat court, gate landmark, and lantern checkpoint
+- [x] Bake navigation mesh; verify player traversal and Soldier obstacle detour, pursuit, and attack
+- [x] Verify combat, lock-on, dodge, guard, and checkpoint death recovery
+- [x] Capture rendered screenshots and measure Compatibility performance on Intel UHD Graphics 620 / 8 GB (180 frames: 60.05 FPS average, 55.62 minimum, 152 draw calls at 1152×648)
+
+### Phase 2.4: Combat Presentation Polish
+- [x] Redesign responsive combat HUD with signal-driven HP, stamina, and lock-on target state
+- [x] Repair player animation state priority and verify genuine skeletal deformation
+- [x] Attach player katana and Soldier weapon to the discovered animated hand bones
+- [x] Synchronize Soldier telegraph, attack active window, recovery, stagger, and death presentation
+- [x] Validate runtime presentation captures at 1152×648 and pass targeted regression tests
+- [x] Repair duplicate player status bars using a single overlay pair per resource
+- [x] Add four stamina-based skills with E selection, Q cast, cooldowns, and Middle Mouse lock-on
+
+### Phase 2.5: Functional HUD, Skills & Animation Audit
+- [x] Make the production compass read live gameplay-camera yaw using world -Z as north
+- [x] Repair production projectile spawn ordering and timed melee skill hit windows
+- [x] Add production-scene InputMap end-to-end validation for E/Q and all four skills
+- [x] Inspect selected CC0 Quaternius humanoid clips and verify license/provenance
+- [x] Repair Soldier full-body state mapping using inspected CC0 UAL clips and preserve the existing 0.65s attack timing
+- [x] Add a production-resource animation preview and Phase 2.6 capture/track regression checks
+- [x] Correct protagonist katana forward axis and stabilize jump arm tracks
+- [ ] Complete verified humanoid BoneMap retarget to the 211-bone protagonist skeleton
+- [ ] Complete manual keyboard/mouse playtest and final visual animation sign-off
+
 ## PHASE 3: Vertical Slice (Bulan 6–12) 🏰
+
+### Phase 2.7: Secondary Motion (SpringBoneSimulator3D) & Building-Lag Optimization
+- [x] Inventory the real rig chains (player 211-bone, Soldier 102-bone) and document missing loose chains honestly (`rig_player.txt`, `rig_soldier.txt`)
+- [x] Replace the procedural bone-overwrite system with native SpringBoneSimulator3D (33 chains, 1 simulator per motion group, per-chain stiffness/drag/gravity/radius, hair/ears/tail/clothing/accessories)
+- [x] Wire capsule/sphere collisions, per-group impulses with clamps, reset/death/hit-react hooks; combat timing and katana attachment untouched
+- [x] Dev-only spring preview tool using the real production model (`tools/secondary_motion_preview`)
+- [x] 24-assertion Phase 2.7 gate suite; migrate Phase 2.1/2.6 suites to native springs
+- [x] Build a stable rendering benchmark instrument (`--disable-render-loop` + one forced draw per sample) with an interleaved baseline/optimized A/B on the production scene
+- [x] Collapse repeated environment props into spatially chunked MultiMesh batches (16 visuals → 8 draws) while keeping all collision bodies
+- [x] Shadow budget: small props stop casting shadows, directional shadow range 100 m → 45 m, atlas 4096 → 2048; measured −9.1% (entry), −6.5% (dense), −4.3% (combat), −7.3% (identical-work control)
+- [x] Reduce CombatHUD draw volume (228 → 70 in Phase 2.8: label batching via draw_string, gradient bake ke GradientTexture1D, StyleBoxEmpty; −69%)
+- [ ] Reduce protagonist/soldier geometry cost (141k/44k tris; asset-level decision, e.g. LOD or mesh merge)
+- [ ] Consider baked occlusion culling for future enclosed interiors (rejected for the open courtyard — measured view pays nothing off)
+- [ ] Consider baked skybox / fog tuning for the ~4.0 ms residual scene cost
+
+### Phase 2.8: Integration & Visual Acceptance Gate
+- [x] Audit-first defect register memakai tabel `Defect | Root cause terkonfirmasi | Bukti | Koreksi | Acceptance test` (lihat `PHASE_2_8_REPORT.md`)
+- [x] Perbaiki nama-tabrakan rebuild HUD `_build_layout: panel lama dibebaskan sinkron (deferred `queue_free` membuat auto-rename `@PanelContainer@N` saat runtime)
+- [x] Audit 33 spring chain per behavior via skenario idle→sprint→hard-turn→jump→landing→dodge→attack (`.godot/phase_2_8/spring_audit.txt`; semua chain membelok dan settle, overhead CPU spring ≈ 0)
+- [x] Jadikan ID chain spring unik (group + nama root bone penuh) — slicer lama bertabrakan di Hair_In[A-E], kedua telinga, dan pasangan bust
+- [x] Suite integrasi InputMap end-to-end 6/6: lock-on MMB (acquire/release), siklus target Tab/wheel, restore checkpoint F (HP/stamina end-to-end), penolakan cooldown Q + HUD `COOLDOWN`, penolakan stamina kurang + HUD `STAMINA`
+- [x] Tulis ulang retarget UAL Soldier sebagai transfer rotasi global per sampel (alignment landmark rest-pose dua rig) — formula lama rest-delta menghasilkan pose mendekati A-pose
+- [x] Drive leluhur statis yang termapping (`DEF-spine.001` → `CC_Base_Waist_98`) + transfer posisi pelvis rescaled agar krouch/collapse memindahkan tinggi tubuh
+- [x] Perbaiki pose "rubbery" telegraph: klip UAL full-body `Punch_Enter` menggantikan klip custom upper-body-only di state TELEGRAPH (skin tak lagi jatuh ke rest pose "running panic" bawaan mesh)
+- [x] Verifikasi invarian retarget ≤1,65° residual di seluruh chain termapping (probe layer/rotation diff), probe pose world-space per state, dan apex serang t=0,371 s di dalam window damage 0,35–0,47 s
+- [x] Ulang benchmark A/B Phase 2.7 setelah semua perubahan: optimized menang lagi (entry −12,3%, dense −9,5%, combat −6,7%, low-density paritas; median absolut lebih tinggi ~3 ms vs laporan 2.7 karena kondisi sesi)
+- [x] Tulis ulang ekspektasi test 8 Phase 2.2 yang usang agar mengikuti aturan seleksi produksi UAL-vs-legacy (`test_phase_2_2.gd` 10/10)
+- [x] Review animasi protagonis lewat capture idle/walk/sprint/dodge/combo dengan input terskrip (bukti visual terbatas; lihat catatan jujur di laporan)
+- [ ] Selesaikan playtest manual keyboard/mouse dan sign-off visual final (checklist user di `PHASE_2_8_REPORT.md`)
+
 
 ### World: Hollowmere Basin
 - [ ] 🔴 Landscape + World Partition setup

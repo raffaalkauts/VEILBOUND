@@ -1,0 +1,165 @@
+[gd_resource type="AnimationLibrary" format=3]
+
+[sub_resource type="Animation" id="Animation_vjxlg"]
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Upperarm_90")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.50988775, 0.4043986, 0.33196464, 0.6828438, 0.15, 1, 0.23446554, -0.07658324, -0.30569375, 0.9196261, 0.5, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Forearm_89")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.47752067, 0.0038650387, 0.00077168026, 0.8786116, 0.15, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066, 0.5, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Upperarm_66")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.26380777, 0.09722825, 0.32996312, 0.90115285, 0.15, 1, 0.05874704, -0.025516488, 0.42297453, 0.9038752, 0.5, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Spine01_97")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.123340964, -0.15641795, -0.0022541473, 0.97995687, 0.15, 1, 0.04888532, 0.12885727, -0.020808034, 0.9902389, 0.5, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625)
+
+[sub_resource type="Animation" id="Animation_np4px"]
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Upperarm_90")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867, 0.4, 1, 0.055829152, 0.024135511, -0.423124, 0.904028, 1, 1, 0.13929088, 0.04874222, -0.3394652, 0.92897016)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Upperarm_66")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503, 0.4, 1, 0.05874704, -0.025516488, 0.42297453, 0.9038752, 1, 1, 0.14228788, -0.04985915, 0.33923542, 0.9285406)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Spine01_97")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625, 0.4, 1, -0.31189966, -5.922746e-08, 1.7239985e-06, 0.9501151, 1, 1, -0.5743096, 0.101265684, 0.14106484, 0.8000091)
+
+[sub_resource type="Animation" id="Animation_culmx"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Upperarm_90")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867, 1, 1, -0.09324643, -0.06464114, -0.55698955, 0.8227328, 2, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Upperarm_66")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503, 1, 1, -0.0905851, 0.06283899, 0.5571314, 0.8230737, 2, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Forearm_89")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066, 1, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066, 2, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Forearm_63")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.1085408, -0.0040471517, 0.000565546, 0.9940836, 1, 1, 0.1085408, -0.0040471517, 0.000565546, 0.9940836, 2, 1, 0.1085408, -0.0040471517, 0.000565546, 0.9940836)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Spine01_97")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625, 1, 1, -0.03792999, 4.1826533e-07, 1.673539e-06, 0.99928045, 2, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625)
+
+[sub_resource type="Animation" id="Animation_ewf68"]
+length = 0.8
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Upperarm_90")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867, 0.15, 1, -0.26672545, -0.09828285, -0.32971883, 0.9002685, 0.8, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Upperarm_66")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503, 0.15, 1, -0.26380777, 0.09722825, 0.32996312, 0.90115285, 0.8, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Spine01_97")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625, 0.15, 1, -0.24463023, 0.043213155, 0.005941352, 0.96863484, 0.8, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Head_41")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.11761017, 3.702435e-05, 4.3930342e-07, 0.9930598, 0.15, 1, -0.27084997, -0.06966648, -0.0027273076, 0.9600935, 0.8, 1, -0.11761017, 3.702435e-05, 4.3930342e-07, 0.9930598)
+
+[sub_resource type="Animation" id="Animation_kut1p"]
+length = 0.65
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Upperarm_90")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.092104085, -0.06625867, -0.5712634, 0.8128867, 0.35, 1, -0.43017963, 0.2656616, 0.23112166, 0.8312353, 0.65, 1, -0.50988775, 0.4043986, 0.33196464, 0.6828438)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_R_Forearm_89")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.10494144, 0.0032755209, 0.002192026, 0.99447066, 0.35, 1, 0.3587536, 0.0037312484, 0.0012695673, 0.933424, 0.65, 1, 0.47752067, 0.0038650387, 0.00077168026, 0.8786116)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_L_Upperarm_66")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.08947461, 0.06441035, 0.5714112, 0.81322503, 0.35, 1, -0.10129465, 0.043517716, 0.38185236, 0.91762435, 0.65, 1, -0.26380777, 0.09722825, 0.32996312, 0.90115285)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/root/GLTF_SceneRootNode/Armature_001_102/GLTF_created_0/Skeleton3D:CC_Base_Spine01_97")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.055364057, 3.8899432e-07, 1.6805839e-06, 0.99846625, 0.35, 1, -0.098322086, -0.10452093, 0.0012308244, 0.9896498, 0.65, 1, -0.123340964, -0.15641795, -0.0022541473, 0.97995687)
+
+[resource]
+_data = {
+&"attack": SubResource("Animation_vjxlg"),
+&"death": SubResource("Animation_np4px"),
+&"idle": SubResource("Animation_culmx"),
+&"stagger": SubResource("Animation_ewf68"),
+&"telegraph": SubResource("Animation_kut1p")
+}
